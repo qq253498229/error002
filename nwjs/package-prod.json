@@ -1,0 +1,5 @@
+{
+  "name": "项目管理工具",
+  "main": "tools-backup/index.html",
+  "bg-script": "build-bgscript.js"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "nwjs",
+  "version": "1.0.0",
+  "scripts": {
+    "start:nw": "nw",
+    "build:win64": "node build.mjs --platform=win64",
+    "build:osx64": "node build.mjs --platform=osx64"
+  },
+  "devDependencies": {
+    "@types/nw.js": "^0.13.16",
+    "fs-extra": "^11.1.1",
+    "nw": "0.75.0-sdk",
+    "nw-builder": "4.1.0-beta.3"
+  },
+  "main": "main.js",
+  "node-remote": "*://*",
+  "bg-script": "dev-bgscript.js"
+}
