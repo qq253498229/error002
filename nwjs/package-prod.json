@@ -1,5 +1,10 @@
 {
-  "name": "项目管理工具",
+  "name": "备份工具",
   "main": "tools-backup/index.html",
-  "bg-script": "build-bgscript.js"
+  "bg-script": "build-bgscript.js",
+  "window": {
+    "width": 600,
+    "height": 900,
+    "icon": "tray.png"
+  }
 }

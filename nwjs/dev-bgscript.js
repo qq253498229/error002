@@ -21,7 +21,7 @@ nw.Window.get().on('close', function () {
   this.close(true);
 });
 // =======系统托盘============
-let tray = new nw.Tray({title: 'cpm'});
+let tray = new nw.Tray({icon: 'tray.png'});
 tray.on('click', function () {
   win.show();
 })

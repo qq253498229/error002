@@ -5,6 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 const THIRD_MODULES: any[] = [
   FormsModule,
@@ -15,6 +21,12 @@ const THIRD_MODULES: any[] = [
 const NG_ZORRO_MODULES: any[] = [
   NzLayoutModule,
   NzMenuModule,
+  NzGridModule,
+  NzInputModule,
+  NzButtonModule,
+  NzFormModule,
+  NzTableModule,
+  NzDividerModule,
 ];
 const COMPONENTS: any[] = [];
 const DIRECTIVES: any[] = [];

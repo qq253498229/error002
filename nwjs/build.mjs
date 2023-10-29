@@ -27,6 +27,7 @@ fs.copySync('../dist', './temp')
 //添加所需文件
 fs.copySync('./package-prod.json', './temp/package.json')
 fs.copySync('./build-bgscript.js', './temp/build-bgscript.js')
+fs.copySync('./tray.png', './temp/tray.png')
 //判断构建目录存在不存在，存在则先删除
 if (fs.pathExistsSync(outDir)) {
   fs.removeSync(outDir)
