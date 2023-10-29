@@ -1,6 +1,6 @@
 {
   "name": "备份工具",
-  "main": "tools-backup/index.html",
+  "main": "index.html",
   "bg-script": "build-bgscript.js",
   "window": {
     "width": 600,

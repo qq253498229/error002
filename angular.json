@@ -42,7 +42,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tools-backup",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -57,6 +57,41 @@
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                 "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/zip-lib/",
+                "output": "/node_modules/zip-lib/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/yauzl/",
+                "output": "/node_modules/yauzl/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/yazl/",
+                "output": "/node_modules/yazl/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/buffer-crc32/",
+                "output": "/node_modules/buffer-crc32/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/fd-slicer/",
+                "output": "/node_modules/fd-slicer/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/pend/",
+                "output": "/node_modules/pend/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/adm-zip/",
+                "output": "/node_modules/adm-zip/"
               }
             ],
             "styles": [

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import * as fs from 'fs';
-import * as os from 'os';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as os from 'node:os';
+import * as _path from 'node:path';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,12 +10,12 @@ import { Observable } from 'rxjs';
 export class AppService {
   fs!: typeof fs;
   os!: typeof os;
-  path!: typeof path;
+  _path!: typeof _path;
 
   constructor() {
     this.fs = nw.require('fs');
     this.os = nw.require('os');
-    this.path = nw.require('path');
+    this._path = nw.require('path');
   }
 
   checkPath(path: string) {
@@ -39,11 +39,11 @@ export class AppService {
     const items = this.fs.readdirSync(folder);
     // 过滤出文件而不是目录
     const files = items.filter(item => {
-      return this.fs.statSync(this.path.join(folder, item)).isFile();
+      return this.fs.statSync(this._path.join(folder, item)).isFile();
     });
     // 创建一个包含文件名和修改时间的数组
     const fileDetails = files.map(file => {
-      const filePath = this.path.join(folder, file);
+      const filePath = this._path.join(folder, file);
       const stats = this.fs.statSync(filePath);
       return {
         name: file,
@@ -57,11 +57,12 @@ export class AppService {
   }
 
   basename(path: string) {
-    return this.path.basename(path);
+
+    return this._path.basename(path);
   }
 
   parent(path: string) {
-    return this.path.dirname(path);
+    return this._path.dirname(path);
   }
 
   del(path: string) {
@@ -71,34 +72,20 @@ export class AppService {
 
   zip(zipName: string, saveFolder: string, backupFolder: string): Observable<void> {
     let zipPath = `${backupFolder}/${zipName}`;
+    let zl = nw.require('zip-lib');
+    console.log('zip saveFolder', saveFolder);
+    console.log('zip basename', this.basename(saveFolder));
+    console.log('zip backupFolder', backupFolder);
+    console.log('zip zipPath', zipPath);
     return new Observable<void>(subscriber => {
-      // 创建一个可写流，将压缩文件保存到指定路径
-      const output = this.fs.createWriteStream(zipPath);
 
-      // 创建一个 archiver 实例
-      const archive = nw.require('archiver')('zip', {
-        zlib: {level: 9}, // 设置压缩级别
-      });
-      // 将可写流连接到 archiver
-      archive.pipe(output);
-
-      // 将源文件夹添加到压缩文件中
-      archive.directory(saveFolder, this.basename(saveFolder));
-
-      // 完成压缩并关闭可写流
-      archive.finalize();
-
-      // 监听完成事件
-      archive.on('end', () => {
+      const zip = new zl.Zip();
+      zip.addFolder(saveFolder, this.basename(saveFolder));
+      zip.archive(zipPath).then(() => {
         subscriber.next();
         subscriber.complete();
       });
 
-      // 处理错误
-      archive.on('error', (e: any) => {
-        subscriber.error(e);
-        subscriber.complete();
-      });
     });
   }
 }
