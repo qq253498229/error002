@@ -1,0 +1,58 @@
+{
+  "types": [
+    {
+      "type": "feat",
+      "section": "✨ Features | 新功能"
+    },
+    {
+      "type": "fix",
+      "section": "\uD83D\uDC1B Bug Fixes | Bug 修复"
+    },
+    {
+      "type": "perf",
+      "section": "⚡ Performance Improvements | 性能优化"
+    },
+    {
+      "type": "revert",
+      "section": "⏪ Reverts | 回退"
+    },
+    {
+      "type": "docs",
+      "section": "\uD83D\uDCDD Documentation | 文档"
+    },
+    {
+      "type": "style",
+      "section": "\uD83D\uDC84 Styles | 风格"
+    },
+    {
+      "type": "refactor",
+      "section": "♻ Code Refactoring | 代码重构",
+      "hidden": true
+    },
+    {
+      "type": "polish",
+      "section": "\uD83E\uDDF9 Code Polish | 代码优化",
+      "hidden": true
+    },
+    {
+      "type": "test",
+      "section": "✅ Tests | 测试",
+      "hidden": true
+    },
+    {
+      "type": "build",
+      "section": "\uD83D\uDC77 Build System | 构建",
+      "hidden": true
+    },
+    {
+      "type": "ci",
+      "section": "\uD83D\uDD27 Continuous Integration | CI 配置",
+      "hidden": true
+    },
+    {
+      "type": "chore",
+      "section": "\uD83C\uDFAB Chores | 其他更新",
+      "hidden": true
+    }
+  ]
+}
