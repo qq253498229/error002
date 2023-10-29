@@ -3,7 +3,6 @@ import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
 import { Observable } from 'rxjs';
-import * as archiver from 'archiver';
 
 @Injectable({
   providedIn: 'root',
@@ -12,13 +11,11 @@ export class AppService {
   fs!: typeof fs;
   os!: typeof os;
   path!: typeof path;
-  archiver!: typeof archiver;
 
   constructor() {
     this.fs = nw.require('fs');
     this.os = nw.require('os');
     this.path = nw.require('path');
-    this.archiver = nw.require('archiver');
   }
 
   checkPath(path: string) {
@@ -79,7 +76,7 @@ export class AppService {
       const output = this.fs.createWriteStream(zipPath);
 
       // 创建一个 archiver 实例
-      const archive = this.archiver('zip', {
+      const archive = nw.require('archiver')('zip', {
         zlib: {level: 9}, // 设置压缩级别
       });
       // 将可写流连接到 archiver
@@ -94,13 +91,13 @@ export class AppService {
       // 监听完成事件
       archive.on('end', () => {
         subscriber.next();
-        // subscriber.complete();
+        subscriber.complete();
       });
 
       // 处理错误
       archive.on('error', (e: any) => {
         subscriber.error(e);
-        // subscriber.complete();
+        subscriber.complete();
       });
     });
   }

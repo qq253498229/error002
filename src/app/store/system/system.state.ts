@@ -81,7 +81,7 @@ export class SystemState {
     const formattedDate = datePipe.transform(currentDate, 'yyyy-MM-dd-HH-mm-ss');
     const zipName = `backup-${formattedDate}.zip`;
     return this.service.zip(zipName, state.saveFolder, state.backupFolder).pipe(tap(() => {
-      this.message.success(`备份完成！`);
+      this.message.success(`备份成功！`);
     }), mergeMap(() => ctx.dispatch(new SystemAction.LoadBackupList())));
   }
 
@@ -99,5 +99,6 @@ export class SystemState {
     this.service.del(state.saveFolder);
     let AdmZip = nw.require('adm-zip');
     new AdmZip(zipName).extractAllTo(this.service.parent(state.saveFolder), true);
+    this.message.success(`还原成功！`);
   }
 }

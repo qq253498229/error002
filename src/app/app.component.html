@@ -25,7 +25,7 @@
 </nz-row>
 <nz-row nz-row *ngIf="saveFolderFlag&&backupFolderFlag">
   <nz-col>
-    <button nz-button nzType="primary" nzSize="large" (click)="backup()">
+    <button nz-button nzType="primary" nzSize="large" [nzLoading]="backupLoading" (click)="backup()">
       立即备份
     </button>
   </nz-col>
@@ -44,7 +44,7 @@
       <tr *ngFor="let data of basicTable.data">
         <td>
           <a>
-            <button nz-button nzType="primary" (click)="revert(data.name)">
+            <button nz-button nzType="primary" (click)="revert(data.name)" [nzLoading]="revertLoading">
               还原
             </button>
           </a>

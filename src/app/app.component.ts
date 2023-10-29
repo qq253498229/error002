@@ -14,6 +14,8 @@ export class AppComponent {
   saveFolderFlag = false;
   backupFolder = '';
   backupFolderFlag = false;
+  backupLoading = false;
+  revertLoading = false;
 
   constructor(
       private store: Store,
@@ -38,10 +40,14 @@ export class AppComponent {
   }
 
   backup() {
-    this.store.dispatch(new SystemAction.Backup());
+    if (this.backupLoading) return;
+    this.backupLoading = true;
+    this.store.dispatch(new SystemAction.Backup()).subscribe(() => this.backupLoading = false);
   }
 
   revert(data: any) {
-    this.store.dispatch(new SystemAction.Revert(data));
+    if (this.revertLoading) return;
+    this.revertLoading = true;
+    this.store.dispatch(new SystemAction.Revert(data)).subscribe(() => this.revertLoading = false);
   }
 }
