@@ -1,7 +1,4 @@
-import { SystemState } from './system';
-
-export * from './router';
-export * from './system';
+import { SystemState } from './system/system.state';
 
 export const states = [
   SystemState,

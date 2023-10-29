@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 
 const THIRD_MODULES: any[] = [
   FormsModule,
@@ -10,7 +12,10 @@ const THIRD_MODULES: any[] = [
   HttpClientModule,
   NgxsFormPluginModule,
 ];
-const NG_ZORRO_MODULES: any[] = [];
+const NG_ZORRO_MODULES: any[] = [
+  NzLayoutModule,
+  NzMenuModule,
+];
 const COMPONENTS: any[] = [];
 const DIRECTIVES: any[] = [];
 const PIPES: any[] = [];
