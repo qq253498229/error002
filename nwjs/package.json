@@ -7,6 +7,7 @@
     "build:osx64": "node build.mjs --platform=osx64"
   },
   "devDependencies": {
+    "@antongolub/lockfile": "^0.0.0-snapshot.12",
     "fs-extra": "^11.1.1",
     "nw": "0.75.0-sdk",
     "nw-builder": "4.1.0-beta.3"
